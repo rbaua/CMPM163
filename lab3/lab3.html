@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab 3: Shaders in Three.js</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="../three.js-master/build/three.js"></script>
+		<script>
+			//start clock
+			var clock = new THREE.Clock(true);
+			clock.start();
+			//load shaders
+			var textureLoader = new THREE.TextureLoader();
+			var noiseTexture = textureLoader.load('bluenoise.png');
+			noiseTexture.magFilter = THREE.LinearFilter;
+			var colorRampTexture = textureLoader.load('colorramp.png');
+			THREE.Cache.enabled = true;
+			var count = 0;
+			var loader = new THREE.FileLoader();
+			var fshader, vshader, fshader2, vshader2;
+
+			loader.load('shaders/vertexShader.vert',
+			// onLoad callback
+			function (data) {
+				vshader = data;
+				count += 1;
+				//addCoolCube(); // we will write this method
+			},
+			// onProgress callback
+			function (xhr) {
+				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+			},
+			// onError callback
+			function (err) {
+				console.error('An error happened');
+			});
+			
+			loader.load('shaders/vertexShader2.vert',
+			// onLoad callback
+			function (data) {
+				vshader2 = data;
+				count += 1;
+				//addCoolCube2(); // we will write this method
+			},
+			// onProgress callback
+			function (xhr) {
+				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+			},
+			// onError callback
+			function (err) {
+				console.error('An error happened');
+			});
+
+			loader.load('shaders/fragmentShader.frag',
+			// onLoad callback
+			function (data) {
+				fshader = data;
+				count += 1;
+				addCoolCube(); // we will write this method
+			},
+			// onProgress callback
+			function (xhr) {
+				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+			},
+			// onError callback
+			function (err) {
+				console.error('An error happened');
+			});
+
+			loader.load('shaders/fragmentShader2.frag',
+			// onLoad callback
+			function (data) {
+				fshader2 = data;
+				count += 1;
+				addCoolCube2(); // we will write this method
+			},
+			// onProgress callback
+			function (xhr) {
+				console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+			},
+			// onError callback
+			function (err) {
+				console.error('An error happened');
+			});
+
+
+
+			// setup the scene
+      		var scene = new THREE.Scene();
+      		var camera = new THREE.PerspectiveCamera(75, 
+				window.innerWidth/window.innerHeight, 0.1, 1000);
+      		var renderer = new THREE.WebGLRenderer();
+      		renderer.setSize(window.innerWidth, window.innerHeight);
+      		document.body.appendChild(renderer.domElement);
+			camera.position.z = 10;
+			
+			// setup the cube
+			var geometry1 = new THREE.BoxGeometry();
+      		var material1 = new THREE.MeshPhongMaterial( { color: 0xdddddd, 
+				specular: 0x00ff00, shininess: 30 });
+
+      		var cube1 = new THREE.Mesh( geometry1, material1 );
+     		scene.add(cube1);
+     		geometry1.translate(-3, -3, 0);
+
+     		var geometry2 = new THREE.TorusKnotGeometry();
+      		var material2 = new THREE.MeshToonMaterial( { color: 0xdddddd, 
+				specular: 0xffffff, shininess: 30 });
+
+      		var cube2 = new THREE.Mesh( geometry2, material2 );
+     		scene.add(cube2);
+     		geometry2.translate(3, 3, 0);
+
+			// add the light
+			var light = new THREE.PointLight(0xffffff, 1, 1000);
+			light.position.set(100, 100, 100);
+			scene.add(light);
+
+			var geometry3, material3, mesh3;
+			var geometry4, material4, mesh4;
+
+			function addCoolCube() {
+				if(count >= 2) {
+					let uniforms = {
+						colorB: {type: 'vec3', value: new 
+							THREE.Color(0xACB6E5)},
+						colorA: {type: 'vec3', value: new 
+							THREE.Color(0x74ebd5)},
+						time: {type: 'float', value: clock.getElapsedTime()}
+	 				};
+
+
+					geometry3 = new THREE.TorusKnotGeometry();
+					material3 =  new THREE.ShaderMaterial({
+						uniforms: uniforms,
+						fragmentShader: fshader,
+						vertexShader: vshader,
+						precision: "mediump"});
+
+					mesh3 = new THREE.Mesh(geometry3, material3);
+					scene.add(mesh3);
+					geometry3.translate(0, 0, 0);
+				}	
+			}
+
+			function addCoolCube2() {
+				if(count >= 3) {
+					let uniforms = {
+						colorB: {type: 'vec3', value: new 
+							THREE.Color(0xACB6E5)},
+						colorA: {type: 'vec3', value: new 
+							THREE.Color(0x74ebd5)},
+						time: {type: 'float', value: clock.getElapsedTime()}
+	 				};
+
+
+					geometry4 = new THREE.TorusKnotGeometry();
+					material4 =  new THREE.ShaderMaterial({
+						uniforms: uniforms,
+						fragmentShader: fshader2,
+						vertexShader: vshader2,
+						precision: "mediump"});
+
+					mesh4 = new THREE.Mesh(geometry4, material4);
+					scene.add(mesh4);
+					geometry4.translate(-3, 3, 0);
+				}	
+			}
+
+			function animate() {
+				requestAnimationFrame(animate);
+				geometry1.rotateX(0.01);
+				geometry1.rotateY(0.01);
+				geometry2.rotateX(-0.01);
+				geometry2.rotateY(-0.01);
+				if(geometry3) {
+					geometry3.rotateX(0.01);
+					geometry3.rotateY(0.01);
+				}
+				if(geometry4) {
+					geometry4.rotateX(0.01);
+					geometry4.rotateY(0.01);
+					mesh4.material.uniforms.time.value = clock.getElapsedTime();
+				}
+				renderer.render(scene, camera);
+			}
+			animate();
+
+		</script>
+	</body>
+</html>
