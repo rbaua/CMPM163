@@ -17,3 +17,9 @@ Lab3:
   c. The top right torus knot: Another one of the Three.js provided shaders, this is a toon shader with a specular highlight in white
   
   d. The orbiting torus knot: My custom shader, which uses the elapsed time since the program started as a uniform variable to change the color as the sin/cos of time (specifically: R = sin(-time) G = cos(time) B = sin^2(time)).
+
+Lab 4:
+Answers:
+  a. x = u*8
+  b. y = (1-v)*8
+  c. (3,6) white
