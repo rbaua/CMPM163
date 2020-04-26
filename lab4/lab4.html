@@ -9,6 +9,40 @@
 		</style>
 	</head>
 	<body>
+		<script id="vertexShader" type="x-shader/x-vertex">
+			// code for vertex shader
+			varying vec2 vUv;
+			void main() {
+  				vUv = uv;
+ 				vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
+  				gl_Position = projectionMatrix * modelViewPosition;
+			}
+		</script>
+
+		<script id="fragmentShader" type="x-shader/x-fragment">
+			// code for fragment shader
+			uniform sampler2D texture1;
+			varying vec2 vUv;
+			void main() {
+				if(vUv.x < 0.5 && vUv.y < 0.5)
+				{
+					gl_FragColor = texture2D(texture1, vec2(vUv.x*2.0, vUv.y*2.0));
+				}
+				else if(vUv.x>=.5 && vUv.y < .5)
+				{
+					gl_FragColor = texture2D(texture1, vec2(vUv.x*2.0 - 1.0, vUv.y*2.0));
+				}
+				else if(vUv.x<.5 && vUv.y >= .5)
+				{
+					gl_FragColor = texture2D(texture1, vec2(vUv.x*2.0, vUv.y*2.0 - 1.0));
+				}
+				else
+				{
+					gl_FragColor = texture2D(texture1, vec2(vUv.x*2.0 - 1.0, vUv.y*2.0 - 1.0));
+				}
+			}
+		</script>
+
 		<script src="../three.js-master/build/three.js"></script>
 		<script>
 			var clock = new THREE.Clock(true);
@@ -26,11 +60,9 @@
 
 			function addTextureShaderCube() {
 				if(count == 2) {
-					let uniforms = {
-        				colorB: {type: 'vec3', value: new THREE.Color(0xACB6E5)},
-        				colorA: {type: 'vec3', value: new THREE.Color(0x74ebd5)}
-        	 		};
-	
+					let uniforms = {texture1: { type: "t", value: 
+						THREE.ImageUtils.loadTexture("171.jpg")}};
+
       				geometry1 = new THREE.BoxGeometry(1, 1, 1);
       				material1 =  new THREE.ShaderMaterial({
             			uniforms: uniforms,
@@ -43,7 +75,6 @@
       				scene.add(mesh1);
     			}
 			}
-
 
 			//load shaders
 			THREE.Cache.enabled = true;
@@ -107,7 +138,19 @@
 			var cube3 = new THREE.Mesh(geometry, material2);
 			scene.add(cube3);
 			cube3.position.x += 2;
-	
+
+			let uniforms = {texture1: { type: "t", value: 
+						THREE.ImageUtils.loadTexture("154.jpg")}};
+			var material3 = new THREE.ShaderMaterial({
+				uniforms: uniforms,
+				vertexShader: document.getElementById('vertexShader').textContent,
+				fragmentShader: document.getElementById('fragmentShader').textContent
+			});
+			var cube4 = new THREE.Mesh(geometry, material3);
+			scene.add(cube4);
+			cube4.position.x -= 2;
+			cube4.position.y +=2;
+
 			// add the light
 			var light = new THREE.PointLight(0xffffff, 1, 1000);
 			light.position.set(10, 10, 10);
