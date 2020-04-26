@@ -23,3 +23,9 @@ Answers:
   a. x = u*8
   b. y = (1-v)*8
   c. (3,6) white
+https://drive.google.com/open?id=1nHOejJ1jHoB9YiX3IAfbWAYOwnO-OiLs
+Part 1 Texture A (uses three.js built in texture functionality) - used THREE.js built in texturing to add a flat texture
+Part 1 Texture A & Normal Map A (uses three.js built in texture functionality) - used THREE.js build in texturing as well as THREE.js built i handling of normal maps to add surface texture without affecting geometry
+Part 1 Texture B & Normal Map B (new texture/normal map combo using built in three.js functionality) - used THREE.js build in texturing as well as THREE.js built i handling of normal maps to add surface texture without affecting geometry
+Part 2 Texture C (load this texture with shaders, as we worked through in the lab together) - used a sample2D uniform to apply a 2D texture to a cube via shader
+Part 2 Texture D (tile this texture at least by showing a 2x2 grid) - multiplied the vUv uniform by 2, subtracted one to make sure that all of the tiles were sampling from the same place
