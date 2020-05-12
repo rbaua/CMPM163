@@ -52,8 +52,11 @@ Lab 6:
    - directional light: light does not originate from any point, is cast along a vector across the whole scene.
    - spotlight: light is emitted in a cone from an origin point
 2. Materials
+
 ![](lab6/images/rock.jpg)
+
 ![](lab6/images/rockmaterial.png)
+
 Material has a brown/gray albedo, roughness normal map taken from the default floor, and some shine to get a soft specular highlight, because these rocks look kind of smooth.
 3. Textures
    -added car from turbosquid with diffuse map for albedo, specular map for the metallic/smoothness, and a normal map for details
@@ -61,4 +64,5 @@ Material has a brown/gray albedo, roughness normal map taken from the default fl
 4. Skybox
    -HD 360 image of a sunset, contributing to lighting in the scene. Tinted directional light to match the sky.
 5. Final result
+
 ![](lab6/images/scenegif.gif)
