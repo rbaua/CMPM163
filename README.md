@@ -45,6 +45,7 @@ Lab 5:
 2. Made the particle system be rainbow circles as exhaust, added my own toon shader to all of the materials. The particle system uses a sprite that I made, changes its color over lifetime between 6 keys in the rainbow colors, and has size and velocity modified via animation curve. System uses world simulation space so it follows the car cartoonishly, instead of always staying in the same spot relative to itself. My toon shader uses the light and viewer direction to find the half vector and light intensity, and then does a smoothstep to get distinctive color banding.
 
 Lab 6:
+
 1. Lights:
    - area light: light is emitted from one side of a rectangular plane. Lighting is baked, not realtime.
    - point light: light emitted in all directions from a point. Light decays as a function of 1/(distance)^2.
@@ -57,12 +58,13 @@ Lab 6:
 
 ![](lab6/images/rockmaterial.png)
 
-Material has a brown/gray albedo, roughness normal map taken from the default floor, and some shine to get a soft specular highlight, because these rocks look kind of smooth.
+   - Material has a brown/gray albedo, roughness normal map taken from the default floor, and some shine to get a soft specular highlight, because these rocks look kind of smooth.
+   
 3. Textures
-   -added car from turbosquid with diffuse map for albedo, specular map for the metallic/smoothness, and a normal map for details
-   -added cube with a rainbow cubemap texture and high smoothness
+   - added car from turbosquid with diffuse map for albedo, specular map for the metallic/smoothness, and a normal map for details
+   - added cube with a rainbow cubemap texture and high smoothness
 4. Skybox
-   -HD 360 image of a sunset, contributing to lighting in the scene. Tinted directional light to match the sky.
+   - HD 360 image of a sunset, contributing to lighting in the scene. Tinted directional light to match the sky.
 5. Final result
 
 ![](lab6/images/scenegif.gif)
