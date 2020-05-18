@@ -68,3 +68,6 @@ Lab 6:
 5. Final result
 
 ![](lab6/images/scenegif.gif)
+
+Lab 7
+Video Demo Link: https://drive.google.com/open?id=1JJ49GK5FtbWEI_wyXFK5o3N1IjeslG30
