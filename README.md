@@ -71,3 +71,5 @@ Lab 6:
 
 Lab 7
 Video Demo Link: https://drive.google.com/open?id=1JJ49GK5FtbWEI_wyXFK5o3N1IjeslG30
+I changed the voronoi noise distortion shader to distort along the y axis after projecting the noise onto the x and z axes. I also added a snow effect, which adds a slightly noisy white color to the tops of the mountains based on their normals and position on the mesh. For the wave shader, I changed the render mode to transparent, added a grab pass to get the backfround, and set the alpha to 0.4. 
+My partner, Modesto, did the three.js version of the lab, and made a river going between some rocky mountains. I really liked the way they did the texture for the rocks! I think that they used a normal map to get some cool detail in there. We did not help each other with the lab.
