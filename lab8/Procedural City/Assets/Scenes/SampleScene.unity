@@ -334,8 +334,8 @@ MonoBehaviour:
   - {fileID: 117616, guid: b2fcb4869e568194ebff11fc13530282, type: 3}
   - {fileID: 1479534576186475076, guid: 34485e20ee52c8f4ba5c35462184d937, type: 3}
   - {fileID: 1488319298838873703, guid: 7776ddd89e9714f458714300173c5a19, type: 3}
-  mapWidth: 20
-  mapHeight: 20
+  mapWidth: 40
+  mapHeight: 40
 --- !u!4 &1793071472
 Transform:
   m_ObjectHideFlags: 0
