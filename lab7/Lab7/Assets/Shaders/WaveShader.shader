@@ -3,6 +3,7 @@
 	   _Color("Color", Color) = (0, 0, 0, 1)
 	   _Strength("Strength", Range(0,4)) = 1.0
 	   _Speed("Speed", Range(-200, 200)) = 100
+	   _Offset("Offset", Range(0, 1)) = 0.6
 	}
 
 		SubShader{
@@ -30,6 +31,7 @@
 		   float4 _Color;
 		   float _Strength;
 		   float _Speed;
+		   float _Offset;
 		   sampler2D _GrabTexture;
 
 		   struct vertexInput {
@@ -58,6 +60,7 @@
 		   float4 fragFunc(vertexOutput IN) : COLOR{
 			  float4 newcolor = float4(_Color.xyz, 1.0);
 			  float4 grab = tex2Dproj(_GrabTexture, IN.screenUV);
+
 			  return newcolor * grab;
 		   }
 
