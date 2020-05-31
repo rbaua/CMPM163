@@ -147,3 +147,10 @@ My partner, Gavril, did Part 1. He had some trouble adding things because his co
 ![](lab9/Videos/HilbertCurve.gif)
 
 *Hilbert curve function taken from https://jsantell.com/l-systems/*
+
+### Lab 9 Usage Instructions
+
+![](lab9/InspectorImage.png)
+
+All L-Systems avaliable in the inspector window for the LSystem object (in scene LSystemScene).
+Select curve from System Type dropdown menu, set length (length of individual lines) and depth (recurion depth for curve to go to).
