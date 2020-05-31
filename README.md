@@ -136,4 +136,6 @@ My partner, Gavril, did Part 1. He had some trouble adding things because his co
 * length of line is halved between recursions
 ![](lab9/Videos/BarnsleyFern.gif)
 
-*rules for the above L-Systems taken from the wikipedia page on Lindenmayer Systems*
+*rules for the above L-Systems taken from the wikipedia page on Lindenmayer Systems: https://en.wikipedia.org/wiki/L-system#Example_4:_Koch_curve*
+
+
