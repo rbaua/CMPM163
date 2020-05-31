@@ -18,7 +18,8 @@ public class LSystemGenerator : MonoBehaviour
         KochCurve,
         SierpinskiTri,
         DragonCurve,
-        BarnsleyFern
+        BarnsleyFern,
+        HilbertCurve
     };
     public SystemType systemType = SystemType.TutorialSystem;
 
@@ -67,6 +68,13 @@ public class LSystemGenerator : MonoBehaviour
             rules.Add('F', "FF");
             axiom = "X";
             angle = 25f;
+        }
+        else if (systemType == SystemType.HilbertCurve)
+        {
+            rules.Add('X', "+YF-XFX-FY+");
+            rules.Add('Y', "-XF+YFY+FX-");
+            axiom = "X";
+            angle = 90f;
         }
         currentString = axiom;
         StartCoroutine(GenerateLSystem());
@@ -268,6 +276,24 @@ public class LSystemGenerator : MonoBehaviour
                     transform.rotation = ti.rotation;
                 }
             }
+            else if (systemType == SystemType.HilbertCurve)
+            {
+                if (i == 'F')
+                {
+                    Vector3 initPos = transform.position;
+                    transform.Translate(Vector3.forward * len);
+                    Debug.DrawLine(initPos, transform.position, colors[count % colors.Length], 10000f, false);
+                    yield return null;
+                }
+                else if (i == '-')
+                {
+                    transform.Rotate(-angle * Vector3.up);
+                }
+                else if (i == '+')
+                {
+                    transform.Rotate(Vector3.up * angle);
+                }
+            }
 
         }
         count++;
@@ -278,7 +304,7 @@ public class LSystemGenerator : MonoBehaviour
         }
         if(systemType == SystemType.BinaryTree || systemType == SystemType.BarnsleyFern 
             || systemType == SystemType.TutorialSystem || 
-            systemType == SystemType.SierpinskiTri)
+            systemType == SystemType.SierpinskiTri || systemType == SystemType.HilbertCurve)
         {
             len = len / 2.0f;
         }
