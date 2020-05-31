@@ -1,10 +1,10 @@
-Lab2:
+## Lab2:
 
 1. https://drive.google.com/file/d/1jm5tZwvc1yi4kVafbkX5BaZ12XC7s1iX/view?usp=sharing
 
 2. ![](lab2/CatBunnyScrsht.png)
 
-Lab3:
+## Lab3:
 
 1.https://drive.google.com/open?id=1qJvG1p790rMQZbRrcGMnlnbkHe5YLtrI
 
@@ -18,7 +18,7 @@ Lab3:
   
   d. The orbiting torus knot: My custom shader, which uses the elapsed time since the program started as a uniform variable to change the color as the sin/cos of time (specifically: R = sin(-time) G = cos(time) B = sin^2(time)).
 
-Lab 4:
+## Lab 4:
 Answers:
 
   a. x = u*8
@@ -39,12 +39,12 @@ Part 2 Texture C (load this texture with shaders, as we worked through in the la
 
 Part 2 Texture D (tile this texture at least by showing a 2x2 grid) - multiplied the vUv uniform by 2, subtracted one to make sure that all of the tiles were sampling from the same place
 
-Lab 5:
+## Lab 5:
 1. https://drive.google.com/open?id=1wi5NwOnxVwsjDwcccpbzmqGTFxlJPZr2
 
 2. Made the particle system be rainbow circles as exhaust, added my own toon shader to all of the materials. The particle system uses a sprite that I made, changes its color over lifetime between 6 keys in the rainbow colors, and has size and velocity modified via animation curve. System uses world simulation space so it follows the car cartoonishly, instead of always staying in the same spot relative to itself. My toon shader uses the light and viewer direction to find the half vector and light intensity, and then does a smoothstep to get distinctive color banding.
 
-Lab 6:
+## Lab 6:
 
 1. Lights:
    - area light: light is emitted from one side of a rectangular plane. Lighting is baked, not realtime.
@@ -69,14 +69,14 @@ Lab 6:
 
 ![](lab6/images/scenegif.gif)
 
-Lab 7
+## Lab 7
 
 Video Demo Link: https://drive.google.com/open?id=1JJ49GK5FtbWEI_wyXFK5o3N1IjeslG30
 
 I changed the voronoi noise distortion shader to distort along the y axis after projecting the noise onto the x and z axes. I also added a snow effect, which adds a slightly noisy white color to the tops of the mountains based on their normals and position on the mesh. For the wave shader, I changed the render mode to transparent, added a grab pass to get the backfround, and set the alpha to 0.4. 
 My partner, Modesto, did the three.js version of the lab, and made a river going between some rocky mountains. I really liked the way they did the texture for the rocks! I think that they used a normal map to get some cool detail in there. We did not help each other with the lab.
 
-Lab 8
+## Lab 8
 
 Video Demo from tutorial: https://drive.google.com/open?id=1vYJvgdiVUv_dKE3rO8sOjMEiwDLgplqT
 
@@ -86,28 +86,54 @@ Picture of Chicago skyline: ![](lab8/images/chicago.jpg)
 
 My partner, Gavril, did Part 1. He had some trouble adding things because his computer was freezing and lagging. We did not help each other with the lab.
 
-Lab 9
+## Lab 9
 
 **Tutorial Result:**
 
 ![](lab9/Videos/TutorialSystem.gif)
 
 **Binary Tree:**
+* variables : 0, 1
+* constants: [, ]
+* axiom: 0
+* rules: (1 -> 11), (0 -> 1[0]0)
+* length of line is halved between recursions
 
 ![](lab9/Videos/BinaryTree.gif)
 
 **Koch Curve:**
+* variables : F
+* constants: +, -
+* axiom: F
+* rules: (F -> F+F−F−F+F)
+* length of line is not halved between recursions
 
 ![](lab9/Videos/KochCurve.gif)
 
 **Sierpinski Triangle:**
+* variables : F, G
+* constants: +, -
+* axiom: F-G-G
+* rules: (F -> F−G+F+G−F), (G -> GG)
+* length of line is halved between recursions
 
 ![](lab9/Videos/SierpinskiTri.gif)
 
 **Dragon Curve:**
+* variables : X, Y
+* constants: F, +, -
+* axiom: FX
+* rules: (X -> X+YF+), (Y -> -FX-Y)
+* length of line is not halved between recursions
 
 ![](lab9/Videos/DragonCurve.gif)
 
 **Barnsley Fern:**
-
+* variables : X, F
+* constants: +, -, [, ]
+* axiom: X
+* rules: (X -> F+[[X]-X]-F[-FX]+X), (F -> FF)
+* length of line is halved between recursions
 ![](lab9/Videos/BarnsleyFern.gif)
+
+*rules for the above L-Systems taken from the wikipedia page on Lindenmayer Systems*
