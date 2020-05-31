@@ -88,20 +88,26 @@ My partner, Gavril, did Part 1. He had some trouble adding things because his co
 
 Lab 9
 
-Tutorial Result:
+**Tutorial Result:**
+
 ![](lab9/Videos/TutorialSystem.gif)
 
-Binary Tree:
+**Binary Tree:**
+
 ![](lab9/Videos/BinaryTree.gif)
 
-Koch Curve:
+**Koch Curve:**
+
 ![](lab9/Videos/KochCurve.gif)
 
-Sierpinski Triangle:
+**Sierpinski Triangle:**
+
 ![](lab9/Videos/SierpinskiTri.gif)
 
-Dragon Curve:
+**Dragon Curve:**
+
 ![](lab9/Videos/DragonCurve.gif)
 
-Barnsley Fern:
+**Barnsley Fern:**
+
 ![](lab9/Videos/BarnsleyFern.gif)
