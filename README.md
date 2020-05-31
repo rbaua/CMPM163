@@ -86,4 +86,22 @@ Picture of Chicago skyline: ![](lab8/images/chicago.jpg)
 
 My partner, Gavril, did Part 1. He had some trouble adding things because his computer was freezing and lagging. We did not help each other with the lab.
 
+Lab 9
 
+Tutorial Result:
+![](lab9/Videos/TutorialSystem.gif)
+
+Binary Tree:
+![](lab9/Videos/BinaryTree.gif)
+
+Koch Curve:
+![](lab9/Videos/KochCurve.gif)
+
+Sierpinski Triangle:
+![](lab9/Videos/SierpinskiTri.gif)
+
+Dragon Curve:
+![](lab9/Videos/DragonCurve.gif)
+
+Barnsley Fern:
+![](lab9/Videos/BarnsleyFern.gif)
