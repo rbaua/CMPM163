@@ -138,4 +138,12 @@ My partner, Gavril, did Part 1. He had some trouble adding things because his co
 
 *rules for the above L-Systems taken from the wikipedia page on Lindenmayer Systems: https://en.wikipedia.org/wiki/L-system#Example_4:_Koch_curve*
 
+**Hilbert Curve**
+* variables : X, Y
+* constants: F, +, -
+* axiom: X
+* rules: (X -> +YF-XFX-FY+), (Y -> -XF+YFY+FX)
+* length of line is halved between recursions
+![](lab9/Videos/HilbertCurve.gif)
 
+*Hilbert curve function taken from https://jsantell.com/l-systems/*
